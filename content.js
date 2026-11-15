@@ -17,4 +17,33 @@
         subtree: true
     });
 
+    function findReelsTab(target) {
+        if (!(target instanceof Element)) return null;
+        const a = target.closest("a[role='link']");
+        if (!a) return null;
+        const svg = a.querySelector("svg[aria-label='Reels']");
+        return svg ? a : null;
+    }
+
+    function handler(e) {
+        const tab = findReelsTab(e.target);
+        if (!tab) return;
+
+        console.log("[reels-fix]", e.type);
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (e.type !== "click") return;
+
+        const path = location.pathname.replace(/\/+$/, "");
+        if (path.endsWith("/reels")) return;
+
+        location.assign(location.origin + path + "/reels/");
+    }
+
+    ["pointerdown", "mousedown", "pointerup", "mouseup", "touchstart", "click"].forEach(type =>
+        window.addEventListener(type, handler, true)
+    );
+
 })();
