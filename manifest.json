@@ -1,0 +1,16 @@
+
+{
+  "manifest_version": 3,
+  "name": "Instagram Private Browsing Helper",
+  "version": "1.0",
+  "description": "Custom Instagram page helper",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
