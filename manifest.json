@@ -9,7 +9,7 @@
       "matches": [
         "https://www.instagram.com/*"
       ],
-      "js": ["content.js","new_post.js","posts_redirect.js"],
+      "js": ["content.js","new_post.js","posts_redirect.js","profile_redirect.js"],
       "run_at": "document_idle"
     }
   ]
